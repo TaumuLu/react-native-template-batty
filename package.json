@@ -1,0 +1,25 @@
+{
+  "name": "react-native-template-batty",
+  "version": "1.0.0",
+  "description": "react native template",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaumuLu/react-native-template-batty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TaumuLu/react-native-template-batty/issues"
+  },
+  "homepage": "https://github.com/TaumuLu/react-native-template-batty#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7"
+  }
+}
