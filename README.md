@@ -8,13 +8,16 @@ react native 模板代码
 项目名batty意为疯狂、古怪，还有蝙蝠的意思，在这个特殊的时期找到这个名字再合适不过了  
 
 ## 使用
-`npx react-native init <projectName> --template batty`
+```
+npx react-native init <projectName> --template batty
+```
 
 ## TODO
 - [x] 支持typescript
 - [x] 支持eslint lint-staged，git commit钩子，commitlint检验
 - [ ] 支持web端
 - [ ] 提供React-Nativation模板代码
+- [ ] 完善文档说明
 
 ## 参考项目
 - [react-native-template-typescript](https://github.com/react-native-community/react-native-template-typescript)
