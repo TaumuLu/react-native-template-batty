@@ -47,10 +47,13 @@ export default {
           {
             loader: 'ts-loader',
             options: {
-              configFile: path.resolve(context, './webpack/tsconfig.json'),
+              configFile: path.resolve(
+                context,
+                './webpack/tsconfig/ts-loader.json'
+              ),
               transpileOnly: true,
-              // happyPackMode: true,
-              // allowTsInNodeModules: true,
+              happyPackMode: true,
+              allowTsInNodeModules: true,
             },
           },
         ],

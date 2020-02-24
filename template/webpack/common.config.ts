@@ -10,9 +10,9 @@ export default {
   context,
   outputPath,
   mode: isDev ? 'development' : 'production',
-  // devtool: isDev ? 'cheap-module-eval-source-map' : 'cheap-module-source-map',
+  devtool: isDev ? 'cheap-module-eval-source-map' : 'cheap-module-source-map',
   // mode: 'none',
-  devtool: 'source-map',
+  // devtool: 'source-map',
   resolve: {
     alias: {
       'react-native': 'react-native-web',
