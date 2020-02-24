@@ -50,5 +50,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    '@typescript-eslint/no-use-before-define': 0,
+    'react-native/no-inline-styles': 0,
   },
 }

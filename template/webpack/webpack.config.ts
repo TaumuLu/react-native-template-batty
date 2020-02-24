@@ -106,6 +106,10 @@ export default {
     // public: 'frame.terminus.io:80',
   },
   plugins: [
+    new webpack.DefinePlugin({
+      __DEV__: isDev,
+      'process.env': JSON.stringify(process.env),
+    }),
     new CleanWebpackPlugin({
       verbose: true,
       cleanOnceBeforeBuildPatterns: ['**/*', '!dll/**'],
@@ -118,8 +122,8 @@ export default {
 
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      // template: '../public/index.html',
-      // hash: true,
+      template: './public/index.html',
+      hash: !isDev,
       inject: true,
     }),
 
@@ -141,17 +145,14 @@ export default {
         ignore: ['*.html'],
       },
     ]),
-  ].reduce(
-    (p, c) => {
-      if (Array.isArray(c)) {
-        p.push(...c)
-      } else if (c) {
-        p.push(c)
-      }
-      return p
-    },
-    [] as any
-  ),
+  ].reduce((p, c) => {
+    if (Array.isArray(c)) {
+      p.push(...c)
+    } else if (c) {
+      p.push(c)
+    }
+    return p
+  }, [] as any),
   optimization: {
     splitChunks: {
       chunks: 'all',
