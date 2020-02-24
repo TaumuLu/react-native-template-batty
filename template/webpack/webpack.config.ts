@@ -2,18 +2,14 @@ import path from 'path'
 import glob from 'glob'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import HtmlWebpackIncludeAssetsPlugin from 'html-webpack-include-assets-plugin'
 import autoprefixer from 'autoprefixer'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-// import CopyWebpackPlugin from 'copy-webpack-plugin'
-// import HappyPack from 'happypack'
-// import WebpackBuildDllPlugin from 'webpack-build-dll-plugin'
-
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import commonConfig from './common.config'
-
-// const happyThreadPool = HappyPack.ThreadPool({ size: 2 })
 
 const { isDev, outputPath, ...config } = commonConfig
 const { context } = config
@@ -43,20 +39,7 @@ export default {
     rules: [
       {
         test: /\.(tsx?|jsx?)$/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              configFile: path.resolve(
-                context,
-                './webpack/tsconfig/ts-loader.json'
-              ),
-              transpileOnly: true,
-              happyPackMode: true,
-              allowTsInNodeModules: true,
-            },
-          },
-        ],
+        use: ['babel-loader'],
       },
       {
         test: /\.less$/,
@@ -123,6 +106,10 @@ export default {
     // public: 'frame.terminus.io:80',
   },
   plugins: [
+    new CleanWebpackPlugin({
+      verbose: true,
+      cleanOnceBeforeBuildPatterns: ['**/*', '!dll/**'],
+    }),
     !isDev &&
       new MiniCssExtractPlugin({
         filename: 'assets/styles/[name].css',
@@ -147,20 +134,13 @@ export default {
           append: false,
         }),
       ],
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.join(__dirname, '../public'),
-    //     to: outputPath,
-    //     ignore: ['*.html'],
-    //   },
-    // ]),
-    // new HappyPack({
-    //   id: 'babel',
-    //   loaders: babelLoaders,
-    //   threadPool: happyThreadPool,
-    //   cache: true,
-    //   verbose: true,
-    // }),
+    new CopyWebpackPlugin([
+      {
+        from: path.join(context, './public'),
+        to: outputPath,
+        ignore: ['*.html'],
+      },
+    ]),
   ].reduce(
     (p, c) => {
       if (Array.isArray(c)) {

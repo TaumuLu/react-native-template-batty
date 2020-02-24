@@ -15,7 +15,7 @@ npx react-native init <projectName> --template batty
 ## TODO
 - [x] 支持typescript
 - [x] 支持eslint lint-staged，git commit钩子，commitlint检验
-- [ ] 支持web端
+- [x] 支持web端
 - [ ] 提供React-Nativation模板代码
 - [ ] 完善文档说明
 

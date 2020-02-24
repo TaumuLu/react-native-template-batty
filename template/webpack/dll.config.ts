@@ -28,7 +28,7 @@ module.exports = {
     umdNamedDefine: true,
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({ verbose: true }),
     new webpack.DllPlugin({
       name: isDev ? '[name]_library' : '[name]_[chunkhash]_library',
       path: path.join(outputPath, './dll/manifest.json'),
