@@ -52,5 +52,6 @@ module.exports = {
     ],
     '@typescript-eslint/no-use-before-define': 0,
     'react-native/no-inline-styles': 0,
+    'react/jsx-props-no-spreading': 0,
   },
 }

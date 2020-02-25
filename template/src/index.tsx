@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, Platform, StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import BottomTabNavigator from './navigation/BottomTabNavigator'
+import screens from './screens'
 
 const Stack = createStackNavigator()
 
@@ -12,7 +12,9 @@ export default () => {
       {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Tabs" component={BottomTabNavigator} />
+          {screens.map(({ name, ...props }) => {
+            return <Stack.Screen key={name} name={name} {...props} />
+          })}
         </Stack.Navigator>
       </NavigationContainer>
     </View>
