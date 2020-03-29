@@ -2,6 +2,8 @@
 template/android
 template/ios
 
+template/web_modules/node_modules
+
 /.vscode
 /package
 /docs
