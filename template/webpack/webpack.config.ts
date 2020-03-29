@@ -3,8 +3,6 @@ import glob from 'glob'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import HtmlWebpackIncludeAssetsPlugin from 'html-webpack-include-assets-plugin'
 import autoprefixer from 'autoprefixer'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -33,7 +31,7 @@ export default {
       ? 'assets/scripts/[name].chunk.js'
       : 'assets/scripts/[name]-[chunkhash].chunk.js',
     publicPath: '/',
-    // libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
@@ -97,11 +95,11 @@ export default {
   },
   devServer: {
     contentBase: outputPath,
-    // compress: true,
     host: '127.0.0.1',
     port: 9966,
     historyApiFallback: true,
     open: true,
+    // compress: true,
     // watchContentBase: true,
     // public: 'frame.terminus.io:80',
   },

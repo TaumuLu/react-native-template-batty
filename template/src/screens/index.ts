@@ -1,13 +1,13 @@
 import HomeScreen from './HomeScreen'
-import TestScreen from './TestScreen'
+import SecondScreen from './SecondScreen'
 
 export default [
   {
-    name: 'home',
+    name: 'Home',
     component: HomeScreen,
   },
   {
-    name: 'test',
-    component: TestScreen,
+    name: 'Sccond',
+    component: SecondScreen,
   },
 ]

@@ -16,6 +16,7 @@ export default {
   resolve: {
     alias: {
       'react-native': 'react-native-web',
+      // '@react-navigation/native': '@react-navigation/web',
     },
     modules: [
       path.join(context, 'web_modules/node_modules'),

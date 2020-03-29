@@ -1,3 +1,4 @@
-import StackNavigator, { createStack } from './createStackNavigator'
+import createScreen from './createScreen'
+import { Navigator, Screen } from './stackNavigator'
 
-export { StackNavigator, createStack }
+export { createScreen, Navigator, Screen }

@@ -1,14 +1,14 @@
-// const isWeb = process.env.TS_NODE_PROJECT
+const isWeb = process.env.TS_NODE_PROJECT
 
-module.exports = api => {
+module.exports = (api) => {
   api.cache(true)
 
   const presets = []
-  const plugins = [
-    ['@babel/plugin-proposal-decorators', { legacy: true }],
-    ['@babel/plugin-proposal-class-properties', { loose: false }],
-  ]
-  // if (isWeb) {
+  const plugins = [['@babel/plugin-proposal-decorators', { legacy: true }]]
+
+  if (isWeb) {
+    plugins.push(['@babel/plugin-proposal-class-properties', { loose: false }])
+  }
   //   presets.push(
   //     [
   //       '@babel/preset-env',
