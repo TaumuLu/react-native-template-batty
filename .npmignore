@@ -1,8 +1,8 @@
-!template/*
-template/android
-template/ios
+node_modules/
+.vscode/
+.DS_Store
 
-template/web_modules/node_modules
+/template/web_modules/node_modules
 
 /.vscode
 /package
